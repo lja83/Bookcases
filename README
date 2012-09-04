@@ -18,6 +18,7 @@ Download Minecraft Coder Pack 6.2 and extract somewhere
 Download Minecraft Forge 171 and extract forge directory into mcp base directory
 
 copy bin/ and resources/ directories from .minecraft directory into jars/ directory in mcp base dir
+copy Minecraft 1.2.5 jar to resources/bin and replace existing minecraft.jar file.
 
 Run forge install script.
 
