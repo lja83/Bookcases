@@ -1,6 +1,6 @@
-package net.minecraft.src;
+package net.minecraft.src.Bookcases;
 
-import net.minecraft.src.tutorial.*;
+import net.minecraft.src.*;
 
 public class BookcaseContainer extends Container
 {

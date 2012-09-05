@@ -1,4 +1,6 @@
-package net.minecraft.src;
+package net.minecraft.src.Bookcases;
+
+import net.minecraft.src.*;
 
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL12;

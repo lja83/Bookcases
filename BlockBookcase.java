@@ -1,7 +1,7 @@
-package net.minecraft.src.tutorial;
+package net.minecraft.src.Bookcases;
 
 import net.minecraft.src.*;
-import net.minecraft.src.tutorial.BookcaseTileEntity;
+import net.minecraft.src.Bookcases.BookcaseTileEntity;
 
 import java.util.Iterator;
 import java.util.Random;

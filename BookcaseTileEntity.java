@@ -1,4 +1,4 @@
-package net.minecraft.src.tutorial;
+package net.minecraft.src.Bookcases;
 
 import net.minecraft.src.*;
 
