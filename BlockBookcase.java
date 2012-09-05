@@ -47,7 +47,7 @@ public class BlockBookcase extends BlockContainer
             blockSide = 4;
         }
         
-        return blockSide;
+        return ModLoader.addOverride("/terrain.png", "/Bookcases/shelf_01.png");
     }
 
     /**
