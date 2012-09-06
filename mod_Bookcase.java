@@ -1,6 +1,6 @@
 package net.minecraft.src.Bookcases;
 
-import net.minecraft.src.forge.NetworkMod;
+import net.minecraft.src.forge.*;
 import net.minecraft.src.Block;
 import net.minecraft.src.Item;
 import net.minecraft.src.ItemStack;
@@ -19,6 +19,8 @@ public class mod_Bookcase extends NetworkMod
     @Override
     public void load()
     {
+        MinecraftForgeClient.preloadTexture("/Bookcases/shelves.png");
+        
         blockHelloWorld = new BlockBookcase(160);
         
         //Register Blocks

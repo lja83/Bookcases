@@ -1,12 +1,14 @@
 package net.minecraft.src.Bookcases;
 
 import net.minecraft.src.*;
+import net.minecraft.src.forge.*;
 import net.minecraft.src.Bookcases.BookcaseTileEntity;
+import net.minecraft.src.forge.ITextureProvider;
 
 import java.util.Iterator;
 import java.util.Random;
 
-public class BlockBookcase extends BlockContainer
+public class BlockBookcase extends BlockContainer implements ITextureProvider
 {
     private Random random = new Random();
 
@@ -19,6 +21,11 @@ public class BlockBookcase extends BlockContainer
         setBlockName("Bookcase");
     }
 
+
+    public String getTextureFile()
+    {
+        return "/Bookcases/shelves.png";
+    }
 
     /**
      * Called whenever the block is added into the world. Args: world, x, y, z
@@ -41,13 +48,15 @@ public class BlockBookcase extends BlockContainer
      */
     public int getBlockTextureFromSide(int side)
     {
-        int blockSide = blockIndexInTexture;
+        // int blockSide = blockIndexInTexture;
+        int blockSide = 0;
         if (side == 0 || side == 1)
         {
-            blockSide = 4;
+            // blockSide = 4;
+            blockSide = 1;
         }
         
-        return ModLoader.addOverride("/terrain.png", "/Bookcases/shelf_01.png");
+        return blockSide;
     }
 
     /**
