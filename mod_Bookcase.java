@@ -8,7 +8,7 @@ import net.minecraft.src.ModLoader;
 
 public class mod_Bookcase extends NetworkMod
 {
-    public Block blockHelloWorld;
+    public Block blockBookcase;
     
     @Override
     public String getVersion()
@@ -21,19 +21,19 @@ public class mod_Bookcase extends NetworkMod
     {
         MinecraftForgeClient.preloadTexture("/Bookcases/shelves.png");
         
-        blockHelloWorld = new BlockBookcase(160, this);
+        blockBookcase = new BlockBookcase(160, this);
         
         //Register Blocks
-        ModLoader.registerBlock(blockHelloWorld);
+        ModLoader.registerBlock(blockBookcase);
         
         //Add Recipes
-        ModLoader.addRecipe(new ItemStack(blockHelloWorld, 3), new Object[]
+        ModLoader.addRecipe(new ItemStack(blockBookcase, 6), new Object[]
         {
-            "   ", "X+X", "   ", 'X', Block.dirt, '+', Block.wood
+            "XXX", "   ", "XXX", 'X', Block.planks
         });
         
         //Add Names
-        ModLoader.addName(blockHelloWorld, "Bookcase");
+        ModLoader.addName(blockBookcase, "Bookcase");
         ModLoader.registerTileEntity(BookcaseTileEntity.class, "Bookcase");
         MinecraftForge.setGuiHandler(this, new BookcaseGuiHandler());
     }

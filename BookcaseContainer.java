@@ -62,14 +62,14 @@ public class BookcaseContainer extends Container
             ItemStack var4 = var3.getStack();
             var2 = var4.copy();
 
-            if (par1 < this.numRows * 9)
+            if (par1 < this.numRows * this.numCols)
             {
-                if (!this.mergeItemStack(var4, this.numRows * 9, this.inventorySlots.size(), true))
+                if (!this.mergeItemStack(var4, this.numRows * this.numCols, this.inventorySlots.size(), true))
                 {
                     return null;
                 }
             }
-            else if (!this.mergeItemStack(var4, 0, this.numRows * 9, false))
+            else if (!this.mergeItemStack(var4, 0, this.numRows * this.numCols, false))
             {
                 return null;
             }

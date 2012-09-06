@@ -9,6 +9,7 @@ public class BookcaseTileEntity extends TileEntity implements IInventory
     public BookcaseTileEntity()
     {
         inv = new ItemStack[14];
+        
     }
     
     @Override
