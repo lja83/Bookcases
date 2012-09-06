@@ -13,7 +13,7 @@ public class mod_Bookcase extends NetworkMod
     @Override
     public String getVersion()
     {
-        return "Tutorial Mod 1.0.0";
+        return "Real Bookcases 0.1";
     }
     
     @Override
