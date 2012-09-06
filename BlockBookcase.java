@@ -2,7 +2,7 @@ package net.minecraft.src.Bookcases;
 
 import net.minecraft.src.*;
 import net.minecraft.src.forge.*;
-import net.minecraft.src.Bookcases.BookcaseTileEntity;
+import net.minecraft.src.Bookcases.*;
 import net.minecraft.src.forge.ITextureProvider;
 
 import java.util.Iterator;
@@ -11,14 +11,17 @@ import java.util.Random;
 public class BlockBookcase extends BlockContainer implements ITextureProvider
 {
     private Random random = new Random();
+    private mod_Bookcase modInstance;
 
-    protected BlockBookcase(int par1)
+    protected BlockBookcase(int par1, mod_Bookcase instance)
     {
         super(par1, Material.wood);
-        blockIndexInTexture = 35;
+        blockIndexInTexture = 15;
         setHardness(1.5f);
         setStepSound(soundWoodFootstep);
         setBlockName("Bookcase");
+        
+        modInstance = instance;
     }
 
 
@@ -38,9 +41,14 @@ public class BlockBookcase extends BlockContainer implements ITextureProvider
     /**
      * Retrieves the block texture to use based on the display side. Args: iBlockAccess, x, y, z, side
      */
-    public int getBlockTexture(IBlockAccess par1IBlockAccess, int par2, int par3, int par4, int side)
+    public int getBlockTexture(IBlockAccess par1IBlockAccess, int x, int y, int z, int side)
     {
-        return getBlockTextureFromSide(side);
+        int blockSide = blockIndexInTexture;
+        if (side > 1) {
+            Object tileEntity = par1IBlockAccess.getBlockTileEntity(x, y, z);
+            blockSide = ((BookcaseTileEntity)tileEntity).getNumUsedSlots();
+        }
+        return blockSide;
     }
 
     /**
@@ -48,12 +56,11 @@ public class BlockBookcase extends BlockContainer implements ITextureProvider
      */
     public int getBlockTextureFromSide(int side)
     {
-        // int blockSide = blockIndexInTexture;
-        int blockSide = 0;
-        if (side == 0 || side == 1)
+        int blockSide = 15;
+        if (side > 1)
         {
             // blockSide = 4;
-            blockSide = 1;
+            blockSide = 0;
         }
         
         return blockSide;
@@ -73,71 +80,8 @@ public class BlockBookcase extends BlockContainer implements ITextureProvider
      */
     public boolean blockActivated(World par1World, int par2, int par3, int par4, EntityPlayer par5EntityPlayer)
     {
-        Object var6 = (BookcaseTileEntity)par1World.getBlockTileEntity(par2, par3, par4);
-
-        par5EntityPlayer.displayGUIChest((IInventory)var6);
+        par5EntityPlayer.openGui(modInstance, 0, par1World, par2, par3, par4);
         return true;
-
-        // if (var6 == null)
-        // {
-        //     return true;
-        // }
-        // else if (par1World.isBlockSolidOnSide(par2, par3 + 1, par4, 0))
-        // {
-        //     return true;
-        // }
-        // else if (isOcelotBlockingChest(par1World, par2, par3, par4))
-        // {
-        //     return true;
-        // }
-        // else if (par1World.getBlockId(par2 - 1, par3, par4) == this.blockID && (par1World.isBlockSolidOnSide(par2 - 1, par3 + 1, par4, 0) || isOcelotBlockingChest(par1World, par2 - 1, par3, par4)))
-        // {
-        //     return true;
-        // }
-        // else if (par1World.getBlockId(par2 + 1, par3, par4) == this.blockID && (par1World.isBlockSolidOnSide(par2 + 1, par3 + 1, par4, 0) || isOcelotBlockingChest(par1World, par2 + 1, par3, par4)))
-        // {
-        //     return true;
-        // }
-        // else if (par1World.getBlockId(par2, par3, par4 - 1) == this.blockID && (par1World.isBlockSolidOnSide(par2, par3 + 1, par4 - 1, 0) || isOcelotBlockingChest(par1World, par2, par3, par4 - 1)))
-        // {
-        //     return true;
-        // }
-        // else if (par1World.getBlockId(par2, par3, par4 + 1) == this.blockID && (par1World.isBlockSolidOnSide(par2, par3 + 1, par4 + 1, 0) || isOcelotBlockingChest(par1World, par2, par3, par4 + 1)))
-        // {
-        //     return true;
-        // }
-        // else
-        // {
-        //     if (par1World.getBlockId(par2 - 1, par3, par4) == this.blockID)
-        //     {
-        //         var6 = new InventoryLargeChest("Large chest", (TileEntityChest)par1World.getBlockTileEntity(par2 - 1, par3, par4), (IInventory)var6);
-        //     }
-
-        //     if (par1World.getBlockId(par2 + 1, par3, par4) == this.blockID)
-        //     {
-        //         var6 = new InventoryLargeChest("Large chest", (IInventory)var6, (TileEntityChest)par1World.getBlockTileEntity(par2 + 1, par3, par4));
-        //     }
-
-        //     if (par1World.getBlockId(par2, par3, par4 - 1) == this.blockID)
-        //     {
-        //         var6 = new InventoryLargeChest("Large chest", (TileEntityChest)par1World.getBlockTileEntity(par2, par3, par4 - 1), (IInventory)var6);
-        //     }
-
-        //     if (par1World.getBlockId(par2, par3, par4 + 1) == this.blockID)
-        //     {
-        //         var6 = new InventoryLargeChest("Large chest", (IInventory)var6, (TileEntityChest)par1World.getBlockTileEntity(par2, par3, par4 + 1));
-        //     }
-
-        //     if (par1World.isRemote)
-        //     {
-        //         return true;
-        //     }
-        //     else
-        //     {
-        //         par5EntityPlayer.displayGUIChest((IInventory)var6);
-        //         return true;
-        //     }
-        // }
     }
 
     /**

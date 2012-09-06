@@ -21,7 +21,7 @@ public class mod_Bookcase extends NetworkMod
     {
         MinecraftForgeClient.preloadTexture("/Bookcases/shelves.png");
         
-        blockHelloWorld = new BlockBookcase(160);
+        blockHelloWorld = new BlockBookcase(160, this);
         
         //Register Blocks
         ModLoader.registerBlock(blockHelloWorld);
@@ -33,8 +33,8 @@ public class mod_Bookcase extends NetworkMod
         });
         
         //Add Names
-        // ModLoader.addName(blockHelloWorld, "Bookcase");
-        
-        // ModLoader.registerTileEntity(BookcaseTileEntity.class, "Bookcase");
+        ModLoader.addName(blockHelloWorld, "Bookcase");
+        ModLoader.registerTileEntity(BookcaseTileEntity.class, "Bookcase");
+        MinecraftForge.setGuiHandler(this, new BookcaseGuiHandler());
     }
 }

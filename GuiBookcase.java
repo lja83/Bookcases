@@ -1,27 +1,29 @@
 package net.minecraft.src.Bookcases;
 
 import net.minecraft.src.*;
+import net.minecraft.src.forge.*;
 import org.lwjgl.opengl.GL11;
 
 public class GuiBookcase extends GuiContainer
 {
-    private IInventory upperChestInventory;
-    private IInventory lowerChestInventory;
-
     /**
      * window height is calculated with this values, the more rows, the heigher
      */
-    private int inventoryRows = 0;
+    private int inventoryRows = 1;
+    private InventoryPlayer inventoryPlayer;
+    private BookcaseTileEntity tileEntity;
 
-    public GuiBookcase(IInventory par1IInventory, IInventory par2IInventory)
+    public GuiBookcase(InventoryPlayer inventoryPlayer, BookcaseTileEntity tileEntity)
     {
-        super(new ContainerChest(par1IInventory, par2IInventory));
-        this.upperChestInventory = par1IInventory;
-        this.lowerChestInventory = par2IInventory;
-        this.allowUserInput = false;
+        super(new BookcaseContainer(inventoryPlayer, tileEntity));
+        this.tileEntity = tileEntity;
+        this.inventoryPlayer = inventoryPlayer;
+        
+        // this.upperChestInventory = par1IInventory;
+        // this.allowUserInput = false;
         short var3 = 222;
         int var4 = var3 - 108;
-        this.inventoryRows = par2IInventory.getSizeInventory() / 9;
+        this.inventoryRows = tileEntity.getSizeInventory() / 7;
         this.ySize = var4 + this.inventoryRows * 18;
     }
 
@@ -30,8 +32,8 @@ public class GuiBookcase extends GuiContainer
      */
     protected void drawGuiContainerForegroundLayer()
     {
-        this.fontRenderer.drawString(StatCollector.translateToLocal(this.lowerChestInventory.getInvName()), 8, 6, 4210752);
-        this.fontRenderer.drawString(StatCollector.translateToLocal(this.upperChestInventory.getInvName()), 8, this.ySize - 96 + 2, 4210752);
+        this.fontRenderer.drawString(StatCollector.translateToLocal(this.tileEntity.getInvName()), 8, 6, 4210752);
+        this.fontRenderer.drawString(StatCollector.translateToLocal(this.inventoryPlayer.getInvName()), 8, this.ySize - 96 + 2, 4210752);
     }
 
     /**
@@ -42,9 +44,14 @@ public class GuiBookcase extends GuiContainer
         int var4 = this.mc.renderEngine.getTexture("/gui/container.png");
         GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
         this.mc.renderEngine.bindTexture(var4);
-        int var5 = (this.width - this.xSize) / 2;
-        int var6 = (this.height - this.ySize) / 2;
-        this.drawTexturedModalRect(var5, var6, 0, 0, this.xSize, this.inventoryRows * 18 + 17);
-        this.drawTexturedModalRect(var5, var6 + this.inventoryRows * 18 + 17, 0, 126, this.xSize, 96);
+        // int x = (width - xSize) / 2;
+        // int y = (height - ySize) / 2;
+        // this.drawTexturedModalRect(x, y, 0, 0, xSize, ySize);
+        int x = (this.width - this.xSize) / 2;
+        int y = (this.height - this.ySize) / 2;
+        // Draw container inventory
+        this.drawTexturedModalRect(x, y, 0, 0, this.xSize, this.inventoryRows * 18 + 17);
+        // Draw player inventory
+        this.drawTexturedModalRect(x, y + this.inventoryRows * 18 + 17, 0, 126, this.xSize, 96);
     }
 }

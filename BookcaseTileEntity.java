@@ -8,7 +8,7 @@ public class BookcaseTileEntity extends TileEntity implements IInventory
     
     public BookcaseTileEntity()
     {
-        inv = new ItemStack[9];
+        inv = new ItemStack[14];
     }
     
     @Override
@@ -23,6 +23,18 @@ public class BookcaseTileEntity extends TileEntity implements IInventory
         return inv[slot];
     }
     
+    public int getNumUsedSlots()
+    {
+        int usedSlots = 0;
+        for (int i = 0; i < inv.length; i ++)
+        {
+            if (inv[i] != null) {
+                usedSlots ++;
+            }
+        }
+        return usedSlots;
+    }
+    
     @Override
     public void setInventorySlotContents(int slot, ItemStack stack)
     {
@@ -31,6 +43,7 @@ public class BookcaseTileEntity extends TileEntity implements IInventory
         {
             stack.stackSize = getInventoryStackLimit();
         }
+        worldObj.markBlockNeedsUpdate(xCoord, yCoord, zCoord);
     }
     
     @Override

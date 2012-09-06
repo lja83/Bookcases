@@ -6,11 +6,41 @@ public class BookcaseContainer extends Container
 {
     private IInventory bookCaseInventory;
     private int numRows;
+    private int numCols;
 
-    public BookcaseContainer(IInventory par1IInventory)
+    public BookcaseContainer(InventoryPlayer inventoryPlayer, BookcaseTileEntity tileEntity)
     {
-        addSlot(new Slot(bookCaseInventory, 0, 76, 37));
-        // bindPlayerInventory(inventoryPlayer);
+        bookCaseInventory = tileEntity;
+        // addSlot(new Slot(bookCaseInventory, 0, 76, 37));
+        
+        // this.numRows = par2IInventory.getSizeInventory() / 9;
+        this.numRows = 2;
+        this.numCols = tileEntity.getSizeInventory() / numRows;
+        
+        int var3 = (this.numRows - 4) * 18;
+        int var4;
+        int var5;
+
+        for (var4 = 0; var4 < this.numRows; ++var4)
+        {
+            for (var5 = 0; var5 < numCols; ++var5)
+            {
+                this.addSlot(new Slot(tileEntity, var5 + var4 * numCols, 8 + var5 * 18, 18 + var4 * 18));
+            }
+        }
+
+        for (var4 = 0; var4 < 3; ++var4)
+        {
+            for (var5 = 0; var5 < 9; ++var5)
+            {
+                this.addSlot(new Slot(inventoryPlayer, var5 + var4 * 9 + 9, 8 + var5 * 18, 103 + var4 * 18 + var3));
+            }
+        }
+
+        for (var4 = 0; var4 < 9; ++var4)
+        {
+            this.addSlot(new Slot(inventoryPlayer, var4, 8 + var4 * 18, 161 + var3));
+        }
     }
 
     @Override
