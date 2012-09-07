@@ -1,4 +1,4 @@
-package realbookcase.common;
+package Bookcases.common;
 
 import net.minecraft.src.Block;
 import net.minecraft.src.ItemStack;
@@ -6,8 +6,6 @@ import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.Init;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
-import cpw.mods.fml.common.network.FMLNetworkHandler;
-import cpw.mods.fml.common.network.IGuiHandler;
 import cpw.mods.fml.common.network.NetworkMod;
 import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -18,7 +16,7 @@ import cpw.mods.fml.common.registry.LanguageRegistry;
      version="0.2")
 @NetworkMod(clientSideRequired=true,
             serverSideRequired=false)
-public class realbookcase
+public class Bookcases_mod
 {
     public static Block blockBookcase;
     

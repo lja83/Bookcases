@@ -1,7 +1,7 @@
-package realbookcase.client;
+package Bookcases.client;
 
 import net.minecraftforge.client.MinecraftForgeClient;
-import realbookcase.common.BookcaseCommonProxy;
+import Bookcases.common.BookcaseCommonProxy;
 
 public class BookcaseClientProxy extends BookcaseCommonProxy
 {

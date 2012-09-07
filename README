@@ -1,25 +1,18 @@
-Prerequisits:
-Minecraft Forge Build 171
-http://jenkins.minecraftforge.net:7070/job/forge/171
-
-Minecraft Coder Pack 6.2
-http://mcp.ocean-labs.de/index.php/MCP_Old_Releases
-https://www.dropbox.com/sh/7msi3be7pd9uxpm/ySgvkS60df/mcp62.zip
-
-Minecraft 1.2.5
-http://www.minecraftmine.org/minecraft-1-2-5-jar/
+Prerequisites:
+Minecraft Forge
+Minecraft Coder Pack 7.2
+Minecraft 1.3.2
+http://www.minecraft.net
 
 Setup:
-Download Minecraft 1.2.5 jar.
 Download official Minecraft launcher.
 Run Minecraft once to download .minecraft directory
 
-Download Minecraft Coder Pack 6.2 and extract somewhere
-Download Minecraft Forge 171 and extract forge directory into mcp base directory
+Download Minecraft Coder Pack 7.2 and extract somewhere
+Download Minecraft Forge and extract forge directory into mcp base directory
 
 copy bin/ and resources/ directories from .minecraft directory into jars/ directory in mcp base dir
-copy Minecraft 1.2.5 jar to resources/bin and replace existing minecraft.jar file.
 
 Run forge install script.
 
-clone Bookcase project into src/minecraft/net/minecraft/src
+clone Bookcase project into src/minecraft/

@@ -1,4 +1,4 @@
-package realbookcase.common;
+package Bookcases.common;
 
 import net.minecraft.src.EntityPlayer;
 import net.minecraft.src.IInventory;

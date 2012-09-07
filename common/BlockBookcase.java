@@ -1,4 +1,4 @@
-package realbookcase.common;
+package Bookcases.common;
 
 import java.util.Random;
 
@@ -10,15 +10,14 @@ import net.minecraft.src.ItemStack;
 import net.minecraft.src.Material;
 import net.minecraft.src.NBTTagCompound;
 import net.minecraft.src.TileEntity;
-import net.minecraft.src.TileEntityChest;
 import net.minecraft.src.World;
 
 public class BlockBookcase extends BlockContainer
 {
     private Random random = new Random();
-    private realbookcase modInstance;
+    private Bookcases_mod modInstance;
     
-    protected BlockBookcase(int blockID, realbookcase instance)
+    public BlockBookcase(int blockID, Bookcases_mod instance)
     {
         super(blockID, Material.wood);
         blockIndexInTexture = 15;

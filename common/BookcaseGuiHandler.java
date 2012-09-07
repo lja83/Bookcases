@@ -1,9 +1,9 @@
-package realbookcase.common;
+package Bookcases.common;
 
 import net.minecraft.src.EntityPlayer;
 import net.minecraft.src.TileEntity;
 import net.minecraft.src.World;
-import realbookcase.client.BookcaseGui;
+import Bookcases.client.BookcaseGui;
 import cpw.mods.fml.common.network.IGuiHandler;
 
 public class BookcaseGuiHandler implements IGuiHandler
