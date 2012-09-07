@@ -1,6 +1,13 @@
-package net.minecraft.src.Bookcases;
+package realbookcase.common;
 
-import net.minecraft.src.*;
+import net.minecraft.src.EntityPlayer;
+import net.minecraft.src.IInventory;
+import net.minecraft.src.ItemStack;
+import net.minecraft.src.NBTTagCompound;
+import net.minecraft.src.NBTTagList;
+import net.minecraft.src.NetworkManager;
+import net.minecraft.src.Packet132TileEntityData;
+import net.minecraft.src.TileEntity;
 
 public class BookcaseTileEntity extends TileEntity implements IInventory
 {
@@ -9,7 +16,6 @@ public class BookcaseTileEntity extends TileEntity implements IInventory
     public BookcaseTileEntity()
     {
         inv = new ItemStack[14];
-        
     }
     
     @Override
@@ -112,7 +118,7 @@ public class BookcaseTileEntity extends TileEntity implements IInventory
     @Override
     public String getInvName()
     {
-        return "Bookshelf";
+        return "Bookcase";
     }
     
     @Override

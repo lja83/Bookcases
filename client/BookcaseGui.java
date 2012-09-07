@@ -1,10 +1,15 @@
-package net.minecraft.src.Bookcases;
+package realbookcase.client;
 
-import net.minecraft.src.*;
-import net.minecraft.src.forge.*;
+import net.minecraft.src.GuiContainer;
+import net.minecraft.src.InventoryPlayer;
+import net.minecraft.src.StatCollector;
+
 import org.lwjgl.opengl.GL11;
 
-public class GuiBookcase extends GuiContainer
+import realbookcase.common.BookcaseContainer;
+import realbookcase.common.BookcaseTileEntity;
+
+public class BookcaseGui extends GuiContainer
 {
     /**
      * window height is calculated with this values, the more rows, the heigher
@@ -13,7 +18,7 @@ public class GuiBookcase extends GuiContainer
     private InventoryPlayer inventoryPlayer;
     private BookcaseTileEntity tileEntity;
 
-    public GuiBookcase(InventoryPlayer inventoryPlayer, BookcaseTileEntity tileEntity)
+    public BookcaseGui(InventoryPlayer inventoryPlayer, BookcaseTileEntity tileEntity)
     {
         super(new BookcaseContainer(inventoryPlayer, tileEntity));
         this.tileEntity = tileEntity;

@@ -1,6 +1,11 @@
-package net.minecraft.src.Bookcases;
+package realbookcase.common;
 
-import net.minecraft.src.*;
+import net.minecraft.src.Container;
+import net.minecraft.src.EntityPlayer;
+import net.minecraft.src.IInventory;
+import net.minecraft.src.InventoryPlayer;
+import net.minecraft.src.ItemStack;
+import net.minecraft.src.Slot;
 
 public class BookcaseContainer extends Container
 {
@@ -25,7 +30,7 @@ public class BookcaseContainer extends Container
         {
             for (var5 = 0; var5 < numCols; ++var5)
             {
-                this.addSlot(new Slot(tileEntity, var5 + var4 * numCols, 8 + var5 * 18, 18 + var4 * 18));
+                this.addSlotToContainer(new Slot(tileEntity, var5 + var4 * numCols, 8 + var5 * 18, 18 + var4 * 18));
             }
         }
 
@@ -33,13 +38,13 @@ public class BookcaseContainer extends Container
         {
             for (var5 = 0; var5 < 9; ++var5)
             {
-                this.addSlot(new Slot(inventoryPlayer, var5 + var4 * 9 + 9, 8 + var5 * 18, 103 + var4 * 18 + var3));
+                this.addSlotToContainer(new Slot(inventoryPlayer, var5 + var4 * 9 + 9, 8 + var5 * 18, 103 + var4 * 18 + var3));
             }
         }
 
         for (var4 = 0; var4 < 9; ++var4)
         {
-            this.addSlot(new Slot(inventoryPlayer, var4, 8 + var4 * 18, 161 + var3));
+            this.addSlotToContainer(new Slot(inventoryPlayer, var4, 8 + var4 * 18, 161 + var3));
         }
     }
 
